@@ -1,6 +1,13 @@
+import sys
+import os
+from pathlib import Path
+
+# Добавляем корневую директорию в PYTHONPATH
+sys.path.insert(0, str(Path(__file__).parent.parent))
+
 import pytest
 from unittest.mock import Mock
-from praktikum.burger import Burger
+from burger import Burger
 
 
 @pytest.fixture
