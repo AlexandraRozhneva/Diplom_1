@@ -1,15 +1,6 @@
-import sys
-import os
-from pathlib import Path
-
-# Добавляем корневую директорию в PYTHONPATH
-sys.path.insert(0, str(Path(__file__).parent.parent))
-
 import pytest
 from unittest.mock import Mock
-from burger import Burger
-from bun import Bun
-from ingredient import Ingredient
+from praktikum.burger import Burger
 
 
 class TestBurger:
@@ -28,6 +19,7 @@ class TestBurger:
     ])
     def test_set_buns_with_real_bun(self, burger, bun_name, bun_price):
         """Тест установки булочки с реальными данными"""
+        from praktikum.bun import Bun
         bun = Bun(bun_name, bun_price)
         burger.set_buns(bun)
         
@@ -49,6 +41,7 @@ class TestBurger:
     ])
     def test_add_ingredient_with_real_ingredient(self, burger, ingredient_type, ingredient_name, ingredient_price):
         """Тест добавления ингредиента с реальными данными"""
+        from praktikum.ingredient import Ingredient
         ingredient = Ingredient(ingredient_type, ingredient_name, ingredient_price)
         burger.add_ingredient(ingredient)
         
